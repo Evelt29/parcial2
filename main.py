@@ -40,6 +40,20 @@ print("PostOrder:", end=" ")
 print(postOrderArr)
 
 
+#---------------------------------------------------
+arrNodos = []
+nodoRaiz = num
+for i in range (0,len(arrNodos),1):
+    if i == 0:
+        nodoRaiz = nodo(arrNodos[i])
+    else:
+        nodosOrdenados(nodoRaiz,nodo(arrNodos[i]))
+    pass
+     
+printArbol(nodoRaiz)
+LVR(nodoRaiz, inOrderArr)
+print(inOrderArr)
+
 
 
 
