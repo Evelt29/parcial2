@@ -1,5 +1,17 @@
 
 from .clases import *
+import pandas as pd
+
+
+def import_xlsx(filename):
+    df = pd.read_excel(filename) 
+    return df
+data = import_xlsx("datos-Eval-2.xlsx")
+
+
+
+
+
 
 def linkHijo(nodoPadre, nodoHijoIz=None, nodoHijoDer=None):
     if nodoHijoIz is not None:

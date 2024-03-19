@@ -1,19 +1,22 @@
 from lib import *
 
-import openpyxl
-import pandas as pd
 
 
-            
+
+
 num = int(input("¿Cuál es tu número? : "))
 doc = input("¿Cual es el nombre del archivo a procesar? : (xlsx)")
 
     
-def import_xlsx(filename):
-    df = pd.read_excel(filename) 
-    return df
-data = import_xlsx("datos-Eval-2.xlsx")
+
 print(data.to_string(index = False))
+
+
+
+
+
+
+
 
 
 
@@ -22,7 +25,7 @@ arrayNum= data.values.flatten().tolist()
 nodoRaiz = nodo(arrayNum[0])
 
 
-for i in range(1, len(arrayNum),1):
+for i in range(0, len(arrayNum),1):
     agregaNodos(nodoRaiz, arrayNum[i])
 printArbol(nodoRaiz)
 print("---------------------------------------------------------------------------------------------------------------------------------------------------------------------")
