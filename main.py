@@ -3,34 +3,22 @@ from lib import *
 import openpyxl
 import pandas as pd
 
-# AGREGA NÚMERO 
+
+            
 num = int(input("¿Cuál es tu número? : "))
 doc = input("¿Cual es el nombre del archivo a procesar? : (xlsx)")
-datos = pd.read_excel('datos-Eval-2.xlsx') #,index =0,  engine ='openpyxl'
-print(datos)
 
-""" 
-# LO IMPRIME COMO LISTAS DENTRO DE LISTAS
-excel_dataframe = openpyxl.load_workbook("datos-Eval-2.xlsx")
-dataframe = excel_dataframe.active
-data = []
-for row in range (0,dataframe.max_row,1):
-    row2 = [row,]
-    for col in dataframe.iter_cols(0,dataframe.max_column,1):
-        row2.append(col[row].value)
-    data.append(row2)
-print(data)
-"""
+    
+def import_xlsx(filename):
+    df = pd.read_excel(filename) 
+    return df
+data = import_xlsx("datos-Eval-2.xlsx")
+print(data.to_string(index = False))
 
 
-        
-print("-------------------------------------------------------------------------------------------")
-
-
-"""
 
 #------------------------ARBOL SIMETRICO-----------------------------------------------
-arrayNum= datos.values.flatten().tolist()
+arrayNum= data.values.flatten().tolist()
 nodoRaiz = nodo(arrayNum[0])
 
 
@@ -74,7 +62,3 @@ for i in range (0,len(arrayNum),1):
 printArbol(nodoRaiz)
 LVR(nodoRaiz, inOrderArr)
 print(inOrderArr)
-
-"""
-
-
