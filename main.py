@@ -1,27 +1,16 @@
 from lib import *
-from colorama import init
 
 
-init()
-num = int(input("¿Cuál es tu número? : "))
-
+"""
 for indice, fila in data.iloc[:, 1:].iterrows():
     for nombre_columna, valor_celda in fila.items():
         if valor_celda == num:
             data.loc[indice, nombre_columna] = f"\033[31m{num}\033[30m"
+            """
+num = numero() 
 
-doc = input("¿Cual es el nombre del archivo a procesar? : (xlsx)")
-
-    
-
+doc = documento()
 print(data.to_string(index = False))
-
-
-
-
-
-
-
 
 
 
@@ -33,6 +22,7 @@ nodoRaiz = nodo(arrayNum[0])
 for i in range(0, len(arrayNum),1):
     agregaNodos(nodoRaiz, arrayNum[i])
 printArbol(nodoRaiz)
+
 print("---------------------------------------------------------------------------------------------------------------------------------------------------------------------")
 #---------IN ORDER ----------------
 print("--------\033[43m\033[31m InOrder:\033[0m-----------")
@@ -59,12 +49,9 @@ print(postOrderArr)
 #----------------ÁRBOL ORDENADO-----------------------------------
 print("árbol odenado")
 
-nodoRaiz = num
+nodoRaiz = nodo(num)
 for i in range (0,len(arrayNum),1):
-    if i == 0:
-        nodoRaiz = nodo(arrayNum[i])
-    else:
-        nodosOrdenados(nodoRaiz,nodo(arrayNum[i]))
+    nodosOrdenados(nodoRaiz,nodo(arrayNum[i-1]))
     pass
      
 printArbol(nodoRaiz)

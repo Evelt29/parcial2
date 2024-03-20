@@ -3,12 +3,19 @@ from .clases import *
 
 import pandas as pd
 
+def numero():
+    num = int(input("¿Cuál es tu número? : "))
+    return num
+
+def documento():
+    doc = input("¿Cual es el nombre del archivo a procesar? : (xlsx)")
+    return doc
+
 
 def import_xlsx(filename):
     df = pd.read_excel(filename) 
     return df
 data = import_xlsx("datos-Eval-2.xlsx")
-
 
 
 
@@ -23,19 +30,17 @@ def linkHijo(nodoPadre, nodoHijoIz=None, nodoHijoDer=None):
 def LVR(nodo, inOrderArr):
     if nodo is not None:
         nodoPadre = nodo
-        nodoHijo = None
         LVR(nodoPadre.izquierda,inOrderArr)    
         inOrderArr.append(nodoPadre.valor)
         LVR(nodoPadre.derecha,inOrderArr) 
+    else:
+        pass   
         
-        
-        return inOrderArr
-    
+    return inOrderArr
 
 def LRV(nodo, postOrderArr):
     if nodo is not None:
         nodoPadre = nodo
-        nodoHijo = None
         LRV(nodoPadre.izquierda,postOrderArr)    
         LRV(nodoPadre.derecha,postOrderArr) 
         postOrderArr.append(nodoPadre.valor)
@@ -45,7 +50,6 @@ def LRV(nodo, postOrderArr):
 def VLF(nodo, preOrderArr):
     if nodo is not None:
         nodoPadre = nodo
-        nodoHijo = None
         preOrderArr.append(nodoPadre.valor)
         VLF(nodoPadre.izquierda,preOrderArr)    
         VLF(nodoPadre.derecha,preOrderArr) 
@@ -55,7 +59,8 @@ def VLF(nodo, preOrderArr):
  
 
  #_______________________NODOS ORDENADOS_______________________
-    
+
+
 def nodosOrdenados(nodoPadre, newNodo):
     if newNodo.valor < nodoPadre.valor: #izquierda
         if nodoPadre.izquierda is None:  
